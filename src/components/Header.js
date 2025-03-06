@@ -1,54 +1,34 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa"; 
-import "./Header.css"; 
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 
-const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-  
-    const toggleMenu = () => {
-      setMenuOpen(!menuOpen);
-    };
-  
-    return (
-      <header>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
-            {/* Логотип */}
-            <Link className="navbar-brand" to="/">
-              eCom store
+const Header = ({ cart }) => {
+  return (
+    <header>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <Link className="navbar-brand" to="/">
+            eCom store
+          </Link>
+
+          <div className="navbar-nav ms-auto">
+            <Link className="nav-link" to="/">
+              Home
             </Link>
-  
-            {/* Бургер-кнопка */}
-            <button className="navbar-toggler" type="button" onClick={toggleMenu}>
-              {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-  
-            {/* Основное меню */}
-            <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`} id="navbarNav">
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/" onClick={toggleMenu}>
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/contact" onClick={toggleMenu}>
-                    Contact
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link cart-icon" to="/cart" onClick={toggleMenu}>
-                    <FaShoppingCart /> Cart <span className="cart-count">0</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <Link className="nav-link" to="/contact">
+              Contact
+            </Link>
+
+            {/* Иконка корзины с бейджем */}
+            <Link className="nav-link cart-icon" to="/cart">
+              <FaShoppingCart />
+              <span className="cart-count">{cart.length}</span>
+            </Link>
           </div>
-        </nav>
-      </header>
-    );
-  };
+        </div>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;
-

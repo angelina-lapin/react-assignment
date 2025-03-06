@@ -1,7 +1,15 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
-  return <footer>© 2024 eCom Store</footer>;
+  return (
+    <footer className="footer">
+      <div className="container text-center">
+        <p>
+          &copy; {new Date().getFullYear()} eCom Store. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
