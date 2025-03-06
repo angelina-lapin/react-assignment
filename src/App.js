@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Product from './pages/Product';
@@ -14,9 +14,9 @@ const App = () => {
     setCart((prevCart) => [...prevCart, product]);
   };
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setCart([]);
-  };
+  }, []);
 
   return (
     <Router>

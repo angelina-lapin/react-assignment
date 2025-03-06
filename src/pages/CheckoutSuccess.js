@@ -1,13 +1,11 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 
 const CheckoutSuccess = ({ clearCart }) => {
-  const memoizedClearCart = useCallback(() => {
-    clearCart();
-  }, [clearCart]);
-
   useEffect(() => {
-    memoizedClearCart();
-  }, [memoizedClearCart]);
+    if (typeof clearCart === 'function') {
+      clearCart();
+    }
+  }, [clearCart]);
 
   return (
     <div className="checkout-success">
