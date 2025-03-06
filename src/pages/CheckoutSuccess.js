@@ -1,23 +1,29 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useCallback } from 'react';
 
 const CheckoutSuccess = ({ clearCart }) => {
-  useEffect(() => {
+  const memoizedClearCart = useCallback(() => {
     clearCart();
-  }, []);
+  }, [clearCart]);
+
+  useEffect(() => {
+    memoizedClearCart();
+  }, [memoizedClearCart]);
 
   return (
     <div className="checkout-success">
       <h1>
-        <span role="img" aria-label="celebration">
+        Thank you for your purchase!{' '}
+        <span role="img" aria-label="party popper">
           🎉
-        </span>{' '}
-        Thank you for your purchase!
-      </h1>
-      <p>Your order has been successfully placed.</p>
-      <Link to="/" className="btn-secondary">
-        Return to Store
-      </Link>
+        </span>
+      </h1>{' '}
+      <p>Your order has been successfully processed.</p>
+      <button
+        className="btn btn-primary"
+        onClick={() => (window.location.href = '/')}
+      >
+        Return to Shop
+      </button>
     </div>
   );
 };
