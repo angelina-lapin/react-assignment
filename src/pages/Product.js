@@ -27,7 +27,6 @@ const Product = ({ addToCart }) => {
           <h1>{product.title}</h1>
           <p>{product.description}</p>
 
-          {/* Цена и скидка */}
           <div className="price-section">
             {discount > 0 ? (
               <>
@@ -42,7 +41,6 @@ const Product = ({ addToCart }) => {
             )}
           </div>
 
-          {/* Кнопка "Add to Cart" справа */}
           <div className="add-to-cart-container">
             <button
               className="btn btn-primary"
@@ -52,7 +50,6 @@ const Product = ({ addToCart }) => {
             </button>
           </div>
 
-          {/* Отзывы внизу */}
           <div className="reviews">
             <h3>Reviews:</h3>
             {product.reviews && product.reviews.length > 0 ? (

@@ -41,7 +41,6 @@ const Home = () => {
                   <p className="card-text">{product.description}</p>
                 </div>
 
-                {/* Блок с ценой и кнопкой */}
                 <div className="card-footer">
                   {product.price !== product.discountedPrice ? (
                     <p className="card-price">

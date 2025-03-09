@@ -19,7 +19,6 @@ const Header = ({ cart }) => {
               Contact
             </Link>
 
-            {/* Иконка корзины с бейджем */}
             <Link className="nav-link cart-icon" to="/cart">
               <FaShoppingCart />
               <span className="cart-count">{cart.length}</span>
