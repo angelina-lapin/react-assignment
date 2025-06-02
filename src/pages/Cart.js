@@ -16,7 +16,7 @@ const Cart = ({ cart }) => {
         <>
           <ul className="cart-list">
             {cart.map((product, index) => (
-              <li key={index} className="cart-item">
+              <li key={index.id} className="cart-item">
                 <img
                   src={product.image.url}
                   alt={product.title}
