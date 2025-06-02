@@ -52,8 +52,8 @@ const Contact = () => {
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Full Name:</label>
-          <input
+          <label for="fullName">Full Name:</label>
+          <input id="fullName" 
             type="text"
             name="fullName"
             value={formData.fullName}
